@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Classificador de diabetes</title>
+    <link rel="shortcut icon" href="" />
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}"/>
+  </head>
+
+  <body style="background-image: url(https://media.istockphoto.com/id/1154923934/vector/red-blood-drop-vector-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=2huXJsEtBnVZGvjmNCaZTHDoiWrt1pkOaFzYlKsWJFg=) no-repeat cover">
+
+    
+    <div class="login">
+      <h2>Probabilidade de Diabetes</h2>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <select name="a" required="required">
+          <br><option value="">Possui pressão alta?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+        
+        <select name="b" required="required">
+          <br><option value="">Possui colesterol alto?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+
+        <select name="c" required="required">
+          <br><option value="">Teve colesterol nos anos?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+        
+        <select name="d" required="required">
+          <br><option value="">É fumante?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+
+        <select name="e" required="required">
+          <br><option value="">Já teve derrame?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+
+        <select name="f" required="required">
+          <br><option value="">Já teve (DAC) ou (IM)?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+
+        <select name="g" required="required">
+          <br><option value="">Realiza atividade física?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+
+        <select name="h" required="required">
+          <br><option value="">Consome frutas diariamente?</option>
+          <option value="1.0">Sim</option>
+          <option value="0.0">Não</option>
+        </select>
+        
+        <br><button type="submit" class="btn btn-primary btn-block btn-large">Iniciar</button>
+      </form>
+
+      <h4>{{ prediction_text }}</h4>
+    </div>
+    <div class="footer">
+      <footer>
+        <p>Yan Carvalho da Silva e Renan Conti - 8º Periodo</p>
+      </footer>
+    </div>
+
+  </body>
+</html>
